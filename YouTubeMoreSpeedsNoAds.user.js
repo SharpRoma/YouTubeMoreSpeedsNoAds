@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         youtube-more-speeds-no-ads
 // @namespace    http://tampermonkey.net/
-// @version      1.2.0
+// @version      1.3.0
 // @description  The stable version with a toggle switch for 18+ Mode, polished player, and full ad-blocking.
 // @author       SharpRoma's modifyed GoodTube script
 // @match        *://m.youtube.com/*
