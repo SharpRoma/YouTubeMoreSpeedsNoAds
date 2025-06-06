@@ -10,6 +10,7 @@
 // @icon         https://cdn-icons-png.flaticon.com/256/1384/1384060.png
 // @run-at       document-start
 // @grant        none
+// @license	 MIT
 // ==/UserScript==
 
 (function () {
