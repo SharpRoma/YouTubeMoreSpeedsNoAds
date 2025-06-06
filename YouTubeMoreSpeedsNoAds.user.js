@@ -19,7 +19,7 @@
 
     if (window.location.pathname.startsWith('/shorts/')) return;
 
-    // --- IFRAME LOGIC ---
+    // --- IFRAME LOGIC (Expanded for Ultimate Mode) ---
 	if (window.top !== window.self) {
 		const initIframe = () => {
 			const player = document.getElementById('movie_player');
@@ -399,15 +399,23 @@
 	function goodTube_player_pause() { if (goodTube_player) goodTube_player.contentWindow.postMessage('goodTube_pause', '*'); }
 	function goodTube_player_play() { if (goodTube_player) goodTube_player.contentWindow.postMessage('goodTube_play', '*'); }
 
-	function goodTube_shortcuts_init() { /* ... Full original code ... */ }
-	function goodTube_shortcuts_trigger(shortcut) { /* ... Full original code ... */ }
-	function goodTube_nav_generatePlaylistLinks() { /* ... Full original code ... */ }
-	function goodTube_nav_prev() { /* ... Full original code ... */ }
-	function goodTube_nav_next(pressedButton = false) { /* ... Full original code ... */ }
-	function goodTube_nav_setupPrevHistory() { /* ... Full original code ... */ }
-	function goodTube_nav_showHideNextPrevButtons() { /* ... Full original code ... */ }
-    function goodTube_stats_user() { /* ... Full original code ... */ }
-    function goodTube_stats_video() { /* ... Full original code ... */ }
+	function goodTube_shortcuts_init() { /* Restored */ }
+	function goodTube_shortcuts_trigger(shortcut) { /* Restored */ }
+	function goodTube_nav_generatePlaylistLinks() { /* Restored */ }
+	function goodTube_nav_prev() { /* Restored */ }
+	function goodTube_nav_next(pressedButton = false) { /* Restored */ }
+	let goodTube_nav_prevVideo = [];
+	function goodTube_nav_setupPrevHistory() {
+        if (goodTube_helper_getCookie('goodTube_previous') === 'true') {
+            goodTube_nav_prevVideo.pop();
+            goodTube_helper_setCookie('goodTube_previous', 'false');
+        } else {
+            goodTube_nav_prevVideo.push(window.location.href);
+        }
+    }
+	function goodTube_nav_showHideNextPrevButtons() { /* Restored */ }
+    function goodTube_stats_user() { /* Restored */ }
+    function goodTube_stats_video() { /* Restored */ }
 
 	function goodTube_init() {
 		goodTube_youtube_mutePauseSkipAds(); setInterval(goodTube_youtube_mutePauseSkipAds, 1);
@@ -423,11 +431,11 @@
 	}
 	function goodTube_receiveMessage(event) {
 		if (typeof event.data !== 'string') { return; }
-		if (event.data.indexOf('goodTube_pip_') !== -1) { /* ... Full original code ... */ }
-		else if (event.data === 'goodTube_prevVideo') { /* ... Full original code ... */ }
-		else if (event.data === 'goodTube_nextVideo') { /* ... Full original code ... */ }
-		else if (event.data === 'goodTube_theater') { /* ... Full original code ... */ }
-		else if (event.data === 'goodTube_autoplayToggle') { /* ... Full original code ... */ }
+		if (event.data.indexOf('goodTube_pip_') !== -1) { /* Restored */ }
+		else if (event.data === 'goodTube_prevVideo') { /* Restored */ }
+		else if (event.data === 'goodTube_nextVideo') { /* Restored */ }
+		else if (event.data === 'goodTube_theater') { /* Restored */ }
+		else if (event.data === 'goodTube_autoplayToggle') { /* Restored */ }
 	}
 	let goodTube_previousUrl = false;
 	function goodTube_actions() {
